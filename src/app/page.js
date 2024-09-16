@@ -8,7 +8,7 @@ import nflMen from './assets/nflMen.png';
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import NflA from './assets/NflA.png';
 import NflN from './assets/NflN.png';
-import nflBrand1 from './assets/NflBrand1.png';
+import nflBrand1 from './assets/nflBrand1.png';
 import FooterLogo from './assets/nflf_logo.png';
 import bgBanner from './assets/sidebar_bg.png';
 import logos from './assets/nflf_logo.png';
