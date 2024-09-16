@@ -1,3 +1,4 @@
+'use client'
 import styles from "./page.module.css";
 import { IoMenu } from "react-icons/io5";
 import { FaAngleRight, FaPlus, FaTwitter } from "react-icons/fa";
@@ -9,59 +10,137 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import NflA from './assets/NflA.png';
 import NflN from './assets/NflN.png';
 import nflBrand1 from './assets/nflBrand1.png';
-import FooterLogo from './assets/nflf_logo.png';
+import FooterLogo from './assets/logoNfl.png';
 import bgBanner from './assets/sidebar_bg.png';
-import logos from './assets/nflf_logo.png';
+import logos from './assets/logoNfl.png';
 import USAfootball_1_edit from './assets/USAfootball_1_edit.jpg';
 import mission_bg from './assets/mission_bg.png';
+import Slider from "react-slick";
+import { TbGridDots } from "react-icons/tb";
+import { useEffect, useRef, useState } from "react";
+
+
 
 
 export default function Home() {
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+    ]
+  };
+  var settings2 = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
+  const firstSlider = useRef()
+  const secondSliderRef = useRef()
+
+  const useSize = () => {
+    const [windowSize, setWindowSize] = useState({
+      height: window.innerHeight,
+      width: window.innerWidth,
+    });
+
+    useEffect(() => {
+      const windowSizeHandler = () => {
+        setWindowSize([window.innerWidth, window.innerHeight]);
+      };
+      window.addEventListener("resize", windowSizeHandler);
+
+      return () => {
+        window.removeEventListener("resize", windowSizeHandler);
+      };
+    }, []);
+
+    return windowSize;
+  };
+
+  const windowsize = useSize();
+
+  console.log(windowsize)
   return (
     <div className={`${styles.MainContainer} container-fluid`}>
-      <div className={styles.SideBar} style={{ backgroundImage: `url(${bgBanner.src})` }}>
-        <div className={styles.diagonal_box}>
+      {windowsize.width > 1400 &&
+        <div className={styles.SideBar} style={{ backgroundImage: `url(${bgBanner.src})` }}>
+          <div className={styles.diagonal_box}>
 
+          </div>
+          <div className={styles.main_logo} style={{ backgroundImage: `url(${logos.src})` }}>
+          </div>
+          <div className={styles.menu_launch}>
+            <div className={styles.closed} bis_skin_checked="1">
+              <span >Menu</span>
+              <IoMenu className={styles.HamburgerIcon} />
+            </div>
+          </div>
+          <view className={`${styles.loginFormation}`}>
+            <h3>Login</h3>
+            <input type="text" placeholder="Email" />
+            <div className={styles.passwordContainer}>
+              <input type="text" placeholder="Password" className={styles.PasswordInput} />
+              <button className={styles.LoginBtn}>
+                <FaAngleRight className={styles.loginIcon} />
+              </button>
+            </div>
+            <h3 className={styles.LinksAction}>Forgot password?</h3>
+            <h3 className={styles.LinksAction}>Register!</h3>
+
+            <div className={styles.socialMediaContainer}>
+              <FaTwitter />
+              <h2>Follow us on Twitter</h2>
+            </div>
+          </view>
         </div>
-        <div className={styles.main_logo} style={{ backgroundImage: `url(${logos.src})` }}>
-        </div>
-        <div className={styles.menu_launch}>
-          <div className={styles.closed} bis_skin_checked="1">
-            <span >Menu</span>
+      }
+
+      <div className={styles.ResponsiveHeader} style={{ backgroundImage: `url(${bgBanner.src})` }}>
+        <div style={{ display: "flex", alignItems: 'center' }}>
+          <div className={styles.RedSideNav}>
             <IoMenu className={styles.HamburgerIcon} />
           </div>
         </div>
-        <view className={`${styles.loginFormation}`}>
-          <h3>Login</h3>
-          <input type="text" placeholder="Email" />
-          <div className={styles.passwordContainer}>
-            <input type="text" placeholder="Password" className={styles.PasswordInput} />
-            <button className={styles.LoginBtn}>
-              <FaAngleRight className={styles.loginIcon} />
-            </button>
-          </div>
-          <h3 className={styles.LinksAction}>Forgot password?</h3>
-          <h3 className={styles.LinksAction}>Register!</h3>
-
-          <div className={styles.socialMediaContainer}>
-            <FaTwitter />
-            <h2>Follow us on Twitter</h2>
-          </div>
-        </view>
-      </div>
-      <div className="row h-100 position-relative">
-        <div className="col-md-7 bg-dark h-100 p-0">
-          <div className={styles.BannerLeft} style={{ backgroundImage: `url(${USAfootball_1_edit.src})` }}>
-            <div className={styles.impectSection}>
-              <h3>
-                IMPACT
-              </h3>
-              <FaPlus className={styles.plusIcon} />
-            </div>
-
-          </div>
+        <div></div>
+        <div className={styles.TransFormResponsiveHead}>
+            <Image src={FooterLogo} className={styles.TransFormResponsiveHeadImage}/>
         </div>
-        <div className="col-md-5 bg-light h-100 p-0">
+      </div>
+
+
+      <div className="row h-100 position-relative">
+
+        {windowsize.width > 1400 &&
+          <div className="col-md-7 bg-dark h-100 p-0">
+            <div className={styles.BannerLeft} style={{ backgroundImage: `url(${USAfootball_1_edit.src})` }}>
+              <div className={styles.impectSection}>
+                <h3>
+                  IMPACT
+                </h3>
+                <FaPlus className={styles.plusIcon} />
+              </div>
+            </div>
+          </div>
+        }
+
+
+        <div className={`${windowsize.width > 1400 ? "col-md-5" : "col-md-12"} bg-light h-100 p-0`}>
           <div className={styles.BannerRight} style={{ backgroundImage: `url(${mission_bg.src})` }}>
             <h1 className={styles.transformingBanner}>
               Mission
@@ -82,51 +161,99 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+
         <div className={styles.featuresAbsolute}>
           <div className="container-fluid h-100">
             <div className={`row h-100`}>
-              <div className="col-md-3 p-0">
-              </div>
-              <div className="col-md-8 p-0 d-flex align-items-center justify-content-between">
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                  <div className={styles.featureContent}>
-                    <Image src={iconImage} />
-                  </div>
-                  <h4 className={styles.featureTitle}>Grant Programs</h4>
-                  <h6 className={styles.featureLink}>More</h6>
+              {windowsize.width > 1400 &&
+                <div className="col-md-3 p-0">
                 </div>
+              }
 
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                  <div className={styles.featureContent}>
-                    <Image src={iconImage} />
+              {windowsize.width > 1400 ?
+                <div className="col-md-8 p-0 d-flex align-items-center justify-content-between">
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className={styles.featureContent}>
+                      <Image src={iconImage} />
+                    </div>
+                    <h4 className={styles.featureTitle}>Grant Programs</h4>
+                    <h6 className={styles.featureLink}>More</h6>
                   </div>
-                  <h4 className={styles.featureTitle}>Youth Football                  </h4>
-                  <h6 className={styles.featureLink}>More</h6>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                  <div className={styles.featureContent}>
-                    <Image src={iconImage} />
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className={styles.featureContent}>
+                      <Image src={iconImage} />
+                    </div>
+                    <h4 className={styles.featureTitle}>Youth Football                  </h4>
+                    <h6 className={styles.featureLink}>More</h6>
                   </div>
-                  <h4 className={styles.featureTitle}>Community</h4>
-                  <h6 className={styles.featureLink}>More</h6>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                  <div className={styles.featureContent}>
-                    <Image src={iconImage} />
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className={styles.featureContent}>
+                      <Image src={iconImage} />
+                    </div>
+                    <h4 className={styles.featureTitle}>Community</h4>
+                    <h6 className={styles.featureLink}>More</h6>
                   </div>
-                  <h4 className={styles.featureTitle}>Health & Safety                  </h4>
-                  <h6 className={styles.featureLink}>More</h6>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                  <div className={styles.featureContent}>
-                    <Image src={iconImage} />
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className={styles.featureContent}>
+                      <Image src={iconImage} />
+                    </div>
+                    <h4 className={styles.featureTitle}>Health & Safety                  </h4>
+                    <h6 className={styles.featureLink}>More</h6>
                   </div>
-                  <h4 className={styles.featureTitle}>Character<br />Education</h4>
-                  <h6 className={styles.featureLink}>More</h6>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className={styles.featureContent}>
+                      <Image src={iconImage} />
+                    </div>
+                    <h4 className={styles.featureTitle}>Character<br />Education</h4>
+                    <h6 className={styles.featureLink}>More</h6>
+                  </div>
                 </div>
-              </div>
-              <div className="col-md-1 p-0">
-              </div>
+                :
+                <div className="col-md-12 p-0">
+                  <div className="row">
+                    <div className="col-md-2 col-sm-4 d-flex align-items-center justify-content-center flex-column">
+                      <div className={styles.featureContent}>
+                        <Image src={iconImage} />
+                      </div>
+                      <h4 className={styles.featureTitle}>Grant Programs</h4>
+                      <h6 className={styles.featureLink}>More</h6>
+                    </div>
+                    <div className="col-md-2 col-sm-4  d-flex align-items-center justify-content-center flex-column">
+                      <div className={styles.featureContent}>
+                        <Image src={iconImage} />
+                      </div>
+                      <h4 className={styles.featureTitle}>Youth Football                  </h4>
+                      <h6 className={styles.featureLink}>More</h6>
+                    </div>
+                    <div className="col-md-2 col-sm-4  d-flex align-items-center justify-content-center flex-column">
+                      <div className={styles.featureContent}>
+                        <Image src={iconImage} />
+                      </div>
+                      <h4 className={styles.featureTitle}>Community</h4>
+                      <h6 className={styles.featureLink}>More</h6>
+                    </div>
+                    <div className="col-md-2 col-sm-4  d-flex align-items-center justify-content-center flex-column">
+                      <div className={styles.featureContent}>
+                        <Image src={iconImage} />
+                      </div>
+                      <h4 className={styles.featureTitle}>Health & Safety                  </h4>
+                      <h6 className={styles.featureLink}>More</h6>
+                    </div>
+                    <div className="col-md-2 col-sm-4  d-flex align-items-center justify-content-center flex-column">
+                      <div className={styles.featureContent}>
+                        <Image src={iconImage} />
+                      </div>
+                      <h4 className={styles.featureTitle}>Character<br />Education</h4>
+                      <h6 className={styles.featureLink}>More</h6>
+                    </div>
+                  </div>
+                </div>
+              }
+              {windowsize.width > 1400 &&
+                <div className="col-md-1 p-0">
+                </div>
+              }
             </div>
           </div>
         </div>
@@ -148,118 +275,169 @@ export default function Home() {
           </div>
           <div className={styles.controller}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <div className={styles.controllBtn}>
+              <button onClick={() => firstSlider?.current?.slickNext()} className={styles.controllBtn}>
                 <FaChevronLeft style={{ color: '#5eb1e8', fontSize: "20px" }} />
-              </div>
-              <div className={styles.controllBtn}>
+              </button>
+              <button onClick={() => firstSlider?.current?.slickPrev()} className={styles.controllBtn}>
                 <FaChevronRight style={{ color: '#5eb1e8', fontSize: "20px" }} />
-              </div>
+              </button>
             </div>
             <h4>VIEW ALL</h4>
           </div>
         </div>
-        <div className="col-md-8 p-0">
 
-          <div className='row'>
-            <div className={`col-md-6 px-5 ${styles.courouselItem}`}>
-              <Image src={sliderImage} className={styles.SliderImageTop} />
-              <h2>Player Matching Grants</h2>
-              <p>NFL Foundation Player Matching Grants are designed to provide nonprofit organizations or schools and youth football organizations with funding of up to $5,000 per grant, on behalf of a current NFL Player or NFL Legend (i.e., former player) that has contributed to the organization.</p>
-              <h3>Find out more</h3>
-            </div>
-            <div className={`col-md-6 px-5 ${styles.courouselItem}`}>
-              <Image src={sliderImage} className={styles.SliderImageTop} />
-              <h2>Player Matching Grants</h2>
-              <p>NFL Foundation Player Matching Grants are designed to provide nonprofit organizations or schools and youth football organizations with funding of up to $5,000 per grant, on behalf of a current NFL Player or NFL Legend (i.e., former player) that has contributed to the organization.</p>
-              <h3>Find out more</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className={`row ${styles.thirdSection}`}>
-        <div className={`col-md-2 p-0`}>
-
-        </div>
-        <div className={`col-md-10 d-flex align-items-center justify-content-between ${styles.programDertailcubes}`} >
-          <div className="d-flex align-items-center justify-conten-center flex-column">
-            <div className={styles.ProgramDetail}>
-              <Image src={nflMen} />
-            </div>
-            <h3>2.6 Million Impacted</h3>
-          </div>
-
-          <div className="d-flex align-items-center justify-conten-center flex-column">
-            <div className={styles.ProgramDetail}>
-              <Image src={nflMen} />
-            </div>
-            <h3>2.6 Million Impacted</h3>
-          </div>
-          <div className="d-flex align-items-center justify-conten-center flex-column">
-            <div className={styles.ProgramDetail}>
-              <Image src={nflMen} />
-            </div>
-            <h3>2.6 Million Impacted</h3>
-          </div>
-          <div className="d-flex align-items-center justify-conten-center flex-column">
-            <div className={styles.ProgramDetail}>
-              <Image src={nflMen} />
-            </div>
-            <h3>2.6 Million Impacted</h3>
-          </div>
-
-        </div>
-      </div>
-
-      <div className={`row ${styles.thirdSection}`}>
-        <div className={`col-md-2 p-0`}>
-
-        </div>
-        <div className={`col-md-10 d-flex justify-content-center position-relative ${styles.secondSlider}`} >
-          <h1>News</h1>
-
-          <div className="">
-            <div className={styles.controllBtn}>
+        <div className={`col-sm-12 ${styles.RedSectionResponsive}`}>
+          <h1>
+            Grant <br />Programs
+          </h1>
+          <div style={{ display: 'flex', alignItems: 'center', paddingBottom: "10px" }}>
+            <button onClick={() => firstSlider?.current?.slickNext()} className={styles.controllBtn}>
               <FaChevronLeft style={{ color: '#5eb1e8', fontSize: "20px" }} />
-            </div>
-          </div>
-
-
-
-          <div>
-            <div className="d-flex align-items-center">
-              <div className={styles.DateSlade}>
-                <h6>Jan 23</h6>
-              </div>
-              <div className={styles.DateSlade}>
-                <h6>2023</h6>
-              </div>
-            </div>
-            <h2>
-              NFL FOUNDATION-LISC GRASSROOTS FIELD<br /> GRANT PROGRAM AWARDS $3 MILLION FOR NEW<br /> AND REFURBISHED COMMUNITY FOOTBALL<br /> FIELDS
-            </h2>
-            <h5>
-              NFL FOUNDATION/LISC GRASSROOTS FIELD GRANT PROGRAM AWARDS $3<br /> MILLION FOR NEW AND  REFURBISHED COMMUNITY FOOTBALL FIELDS IN 16 CITIES AND<br /> TOWNS NATIONWIDE
-            </h5>
-          </div>
-
-          <div className="">
-            <div className={styles.controllBtn}>
+            </button>
+            <button onClick={() => firstSlider?.current?.slickPrev()} className={styles.controllBtn}>
               <FaChevronRight style={{ color: '#5eb1e8', fontSize: "20px" }} />
+            </button>
+          </div>
+        </div>
+
+        <div className="col-md-8 p-0" style={{ overflow: 'hidden' }}>
+          <Slider {...settings} ref={firstSlider}>
+            <div className={`${styles.courouselItem}`}>
+              <Image src={sliderImage} className={styles.SliderImageTop} />
+              <h2>Player Matching Grants</h2>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <TbGridDots style={{ color: '#bcc4c9', fontSize: "25px", marginRight: '7px' }} />
+                <p className="p-0 m-0">Youth Football</p>
+                <p className="p-0 m-0" style={{ borderLeft: '2px solid #bcc4c9', marginLeft: "7px !important", paddingLeft: "7px !important" }}>Matching Grants</p>
+              </div>
+              <p>NFL Foundation Player Matching Grants are designed to provide nonprofit organizations or schools and youth football organizations with funding of up to $5,000 per grant, on behalf of a current NFL Player or NFL Legend (i.e., former player) that has contributed to the organization.</p>
+              <h3>Find out more</h3>
+            </div>
+            <div className={`${styles.courouselItem}`}>
+              <Image src={sliderImage} className={styles.SliderImageTop} />
+
+              <h2>Player Matching Grants</h2>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <TbGridDots style={{ color: '#bcc4c9', fontSize: "25px", marginRight: '7px' }} />
+                <p className="p-0 m-0">Youth Football</p>
+              </div>
+              <p>NFL Foundation Player Matching Grants are designed to provide nonprofit organizations or schools and youth football organizations with funding of up to $5,000 per grant, on behalf of a current NFL Player or NFL Legend (i.e., former player) that has contributed to the organization.</p>
+              <h3>Find out more</h3>
+            </div>
+            <div className={`${styles.courouselItem}`}>
+              <Image src={sliderImage} className={styles.SliderImageTop} />
+              <h2>Player Matching Grants</h2>
+              <p>NFL Foundation Player Matching Grants are designed to provide nonprofit organizations or schools and youth football organizations with funding of up to $5,000 per grant, on behalf of a current NFL Player or NFL Legend (i.e., former player) that has contributed to the organization.</p>
+              <h3>Find out more</h3>
+            </div>
+          </Slider>
+        </div>
+      </div>
+
+      <div className={`row ${styles.thirdSection} py-0`}>
+        {windowsize.width > 1400 &&
+          <div className={`col-md-2 p-0`}>
+
+          </div>
+        }
+        <div className={`${windowsize.width > 1400 ? "col-md-10" : "col-md-12"}  ${styles.programDertailcubes}`}>
+          <div className="row">
+            <div className="col-md-3 d-flex align-items-center justify-content-center text-center flex-column">
+              <div className={styles.ProgramDetail}>
+                <Image src={nflMen} />
+              </div>
+              <h3>2.6 Million Impacted</h3>
+            </div>
+            <div className="col-md-3 d-flex align-items-center justify-content-center text-center flex-column">
+              <div className={styles.ProgramDetail}>
+                <Image src={nflMen} />
+              </div>
+              <h3>2.6 Million Impacted</h3>
+            </div>
+            <div className="col-md-3 d-flex align-items-center justify-content-center text-center flex-column">
+              <div className={styles.ProgramDetail}>
+                <Image src={nflMen} />
+              </div>
+              <h3>2.6 Million Impacted</h3>
+            </div>
+            <div className="col-md-3 d-flex align-items-center justify-content-center text-center flex-column">
+              <div className={styles.ProgramDetail}>
+                <Image src={nflMen} />
+              </div>
+              <h3>2.6 Million Impacted</h3>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className={`row ${styles.thirdSection}`}>
+        {windowsize.width > 1400 &&
+          <div className={`col-md-2 p-0`}>
+          </div>
+        }
+        <div className={`${windowsize.width > 1400 ? "col-md-10" : "col-md-12"} d-flex justify-content-center position-relative ${styles.secondSlider}`} >
+          {windowsize.width > 1400 &&
+            <h1>News</h1>
+          }
+          <div className={`pt-5 ${styles.secondSliderIndicatior}`}>
+            <button onClick={() => secondSliderRef?.current?.slickNext()} className={styles.controllBtn2}>
+              <FaChevronLeft style={{ color: '#5eb1e8', fontSize: "20px" }} />
+            </button>
+          </div>
+
+          <Slider {...settings2} ref={secondSliderRef}>
+            <div className="px-4 col-md-10">
+              <div className="d-flex align-items-center">
+                <div className={styles.DateSlade}>
+                  <h6>Jan 23</h6>
+                </div>
+                <div className={styles.DateSlade}>
+                  <h6>2023</h6>
+                </div>
+              </div>
+              <h2>
+                NFL FOUNDATION-LISC GRASSROOTS FIELD<br /> GRANT PROGRAM AWARDS $3 MILLION FOR NEW<br /> AND REFURBISHED COMMUNITY FOOTBALL<br /> FIELDS
+              </h2>
+              <h5 className={styles.secondSliderPara}>
+                NFL FOUNDATION/LISC GRASSROOTS FIELD GRANT PROGRAM AWARDS $3<br /> MILLION FOR NEW AND  REFURBISHED COMMUNITY FOOTBALL FIELDS IN 16 CITIES AND<br /> TOWNS NATIONWIDE
+              </h5>
+            </div>
+          </Slider>
+
+          <view className={styles.secondSliderIndicatiorResponsive}>
+            <button onClick={() => secondSliderRef?.current?.slickNext()} className={styles.controllBtn2}>
+              <FaChevronLeft style={{ color: '#5eb1e8', fontSize: "20px" }} />
+            </button>
+            <button onClick={() => secondSliderRef?.current?.slickPrev()} className={styles.controllBtn2}>
+              <FaChevronRight style={{ color: '#5eb1e8', fontSize: "20px" }} />
+            </button>
+          </view>
+          <div className={`pt-5 ${styles.secondSliderIndicatior}`}>
+            <div className="d-flex align-items-center">
+              <button onClick={() => secondSliderRef?.current?.slickPrev()} className={styles.controllBtn2}>
+                <FaChevronRight style={{ color: '#5eb1e8', fontSize: "20px" }} />
+              </button>
+              {windowsize.width > 1400 &&
+                <h5 style={{ fontFamily: 'Endzone Sans Bold', color: '#5eb1e8' }}>View All</h5>
+              }
+            </div>
+          </div>
+
+
+
 
         </div>
       </div>
 
       <div className={`row ${styles.coummunitySection}`}>
-        <div className={`col-md-2 p-0`}>
+        {windowsize.width > 1400 &&
+          <div className={`col-md-2 p-0`}>
 
-        </div>
-
-        <div className={`col-md-10 pl-0 pr-0 `}>
+          </div>
+        }
+        <div className={`${windowsize.width > 1400 ? "col-md-10" : "col-md-12"} pl-0 pr-0 `}>
           <div className="row">
-            <div className={`col-md-5`}>
+            <div className={`${windowsize.width > 1200 ? "col-md-5" : "col-md-12"}`}>
               <div className={styles.coummunitySecond}>
                 <h2>Community</h2>
                 <p>Whether it's promoting new youth and high school<br />
@@ -278,90 +456,90 @@ export default function Home() {
             </div>
 
 
-            <div className={`col-md-7`}>
+            <div className={`${windowsize.width > 1200 ? "col-md-7" : "col-md-12"}`}>
               <div style={{ paddingBlock: '30px' }}></div>
-              <div style={{ display: 'flex', alignItems: 'flex-start', paddingBottom: '20px', paddingRight: '100px', borderBottom: '1px solid #EEEEEE' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', paddingBottom: '20px', paddingRight: '100px', borderBottom: '1px solid #EEEEEE' }} className={styles.mobileFlex}>
                 <div>
                   <Image src={NflA} />
                 </div>
-                <div className="row">
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                <div className="row" >
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2  col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2  col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2  col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2  col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2  col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2  col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2  col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
                 </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', paddingTop: '30px', paddingRight: '100px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', paddingTop: '30px', paddingRight: '100px' }} className={styles.mobileFlexCenter}>
                 <div>
                   <Image src={NflN} />
                 </div>
                 <div className="row">
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
-                  <div className="col-md-2 d-flex align-items-start justify-content-center">
+                  <div className="col-md-2 col-2">
                     <Image src={nflBrand1} className={styles.BrandImage} />
                   </div>
                 </div>
@@ -372,9 +550,6 @@ export default function Home() {
         </div>
       </div>
 
-
-
-
       <div className={`row ${styles.footerSection}`}>
         <div className={`col-md-2 p-0`} style={{ background: 'white' }}>
 
@@ -382,13 +557,17 @@ export default function Home() {
 
         <div className={`col-md-10 pl-0 pr-0 position-relative`}>
           <div className="row">
-            <div className={`${styles.footerLogo}`}>
-              <Image src={FooterLogo} className={styles.footerLogoImage} />
-            </div>
+            {windowsize.width > 1200 &&
+              <div className={`${styles.footerLogo}`}>
+                <Image src={FooterLogo} className={styles.footerLogoImage} />
+              </div>
+            }
 
-            <div className={`col-md-4`}>
-            </div>
-            <div className={`col-md-8 ${styles.footerDescription}`}>
+            {windowsize.width > 1200 &&
+              <div className={`col-md-4`}>
+              </div>
+            }
+            <div className={`${windowsize.width > 1200 ? 'col-md-8' : 'col-md-12'} ${styles.footerDescription}`}>
               <div className="row h-100">
                 <div className="col-md-9 d-flex align-items-center flex-column justify-content-center" >
                   <p>

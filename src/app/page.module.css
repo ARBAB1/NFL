@@ -1,7 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @font-face {
     font-family: 'roboto-regular';
     src: url('./fonts/endzoneslab-bold_bigfontsite.com.ttf');
+}
+
+@import url('https://db.onlinewebfonts.com/c/d2fbb36bc57584d7bda109a1cb18564b?family=Endzone+Sans+Bold');
+
+@font-face {
+    font-family: "Endzone Sans Medium";
+    src: url("https://db.onlinewebfonts.com/t/722f4e99cf83238272fdf8bf79e9556d.eot");
+    src: url("https://db.onlinewebfonts.com/t/722f4e99cf83238272fdf8bf79e9556d.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/722f4e99cf83238272fdf8bf79e9556d.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/722f4e99cf83238272fdf8bf79e9556d.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/722f4e99cf83238272fdf8bf79e9556d.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/722f4e99cf83238272fdf8bf79e9556d.svg#Endzone Sans Medium")format("svg");
+}
+
+@font-face {
+    font-family: "Endzone Sans Bold";
+    src: url("https://db.onlinewebfonts.com/t/d2fbb36bc57584d7bda109a1cb18564b.eot");
+    src: url("https://db.onlinewebfonts.com/t/d2fbb36bc57584d7bda109a1cb18564b.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/d2fbb36bc57584d7bda109a1cb18564b.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/d2fbb36bc57584d7bda109a1cb18564b.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/d2fbb36bc57584d7bda109a1cb18564b.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/d2fbb36bc57584d7bda109a1cb18564b.svg#Endzone Sans Bold")format("svg");
 }
 
 
@@ -25,7 +48,7 @@
 
 .main_logo {
     background: no-repeat;
-    background-size: 261px 175px;
+    background-size: 261px 150px;
     width: 261px;
     height: 175px;
     z-index: 999991;
@@ -106,6 +129,7 @@
 
 .PasswordInput {
     width: 85% !important;
+    font-family: 'Endzone Sans Medium' !important;
 }
 
 .LoginBtn {
@@ -133,7 +157,7 @@
 }
 
 .LinksAction {
-    font-family: 'roboto-regular' !important;
+    font-family: 'Endzone Sans Medium' !important;
     font-size: 19px !important;
     margin-block: 4px !important;
     color: #5eb1e8 !important;
@@ -154,7 +178,8 @@
 
 .socialMediaContainer h2 {
     font-size: 20px;
-    font-family: 'roboto-regular' !important;
+    font-family: 'Endzone Sans Medium' !important;
+    margin-left: 10px !important;
 }
 
 .BannerLeft {
@@ -167,8 +192,6 @@
 }
 
 .BannerRight {
-    height: 850px;
-    background-color: blue;
     padding: 160px 160px 210px 160px;
     position: relative;
     background: #da0000 no-repeat bottom right;
@@ -178,22 +201,32 @@
     align-items: flex-start;
 }
 
+
 .transformingBanner {
+    position: absolute;
     transform: rotate(-90deg);
     font-family: 'roboto-regular' !important;
     line-height: 0;
-    letter-spacing: 1;
+    color: #fff;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: 10px;
+    top: 290px;
+    font-size: 52px;
 }
 
 .BannerRight p {
-    font-size: 20;
-    font-family: 'roboto-regular';
-    margin-block: 15px;
+    font-family: "Endzone Sans Medium";
+    font-size: 19px;
+    font-weight: 300;
+    font-style: normal;
 }
 
 .BannerRight a {
     color: #1a2e3b !important;
-    font-family: 'roboto-regular' !important;
+    font-family: 'Endzone Sans Medium' !important;
+    font-size: 18px;
 }
 
 .impectSection {
@@ -243,15 +276,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 200px;
+    height: 220px;
     width: 100%;
     z-index: 9999;
+    overflow: hidden;
+
+}
+
+.featuresAbsolute::after {
+    content: '';
+    width: 205px;
+    height: 400px;
+    background: #d8e2e5;
+    transform: rotate(34deg);
+    position: absolute;
+    top: -95px;
+    left: 150px;
 }
 
 .featureContent {
-    height: 150px;
-    width: 150px;
-    border-radius: 150px;
+    height: 136px;
+    width: 136px;
+    border-radius: 136px;
     border: 8px solid #004979;
     background-color: white;
     display: flex;
@@ -265,8 +311,8 @@
     border-radius: 50%;
     border: solid 6px #d8e2e5;
     background: none;
-    width: 128px;
-    height: 128px;
+    width: 114px;
+    height: 114px;
     position: absolute;
     top: 3px;
     left: 3px;
@@ -275,15 +321,17 @@
 .featureTitle {
     color: #004979;
     text-transform: uppercase;
-    font-family: 'roboto-regular';
+    font-family: "Endzone Sans Bold";
+    font-weight: 800;
     margin-top: 10px;
     text-align: center;
     font-size: 20px;
 }
 
 .featureLink {
-    font-family: 'roboto-regular';
+    font-family: "Endzone Sans Bold";
     color: #5eb1e8;
+    font-weight: 800;
 }
 
 .secondSection {
@@ -298,11 +346,25 @@
     align-items: center;
     justify-content: flex-end;
     position: relative;
+    overflow: hidden;
+}
+
+.RedSection::after {
+    content: '';
+    width: 400px;
+    height: 400px;
+    background: #c20101;
+    transform: rotate(34deg);
+    position: absolute;
+    bottom: -230px;
+    right: -270px;
+    z-index: 1;
 }
 
 .transformDivh1 {
-    width: 150px;
+    width: 174px;
     height: 0px;
+    z-index: 9;
 }
 
 .transformDivh1 h1 {
@@ -316,11 +378,12 @@
 .controller {
     position: absolute;
     bottom: 20px;
-    right: 0;
+    right: 13px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     display: flex;
+    z-index: 9;
 }
 
 .controllBtn {
@@ -332,6 +395,8 @@
     align-items: center;
     justify-content: center;
     margin-inline: 15px;
+    border: solid 4px #c20101;
+    cursor: pointer;
 }
 
 .controller h4 {
@@ -346,20 +411,29 @@
     width: 275px;
 }
 
+
+.courouselItem {
+    padding-inline: 30px;
+}
+
 .courouselItem h2 {
     font-family: 'roboto-regular';
-    color: #004979;
-    margin-top: 15px;
+    font-size: 30px;
+    color: #00529c !important;
 }
 
 .courouselItem p {
-    font-family: 'roboto-regular';
-    color: #4c606f;
+    font-family: 'Endzone Sans Medium';
     margin-top: 15px;
+    font-size: 19px;
+    font-weight: 300;
+    font-style: normal;
+    box-sizing: border-box;
+    color: #4c606f;
 }
 
 .courouselItem h3 {
-    font-family: 'roboto-regular';
+    font-family: 'Endzone Sans Medium';
     color: #5eb1e8;
     margin-top: 15px;
 }
@@ -376,6 +450,21 @@
     position: relative;
 }
 
+
+.controllBtn2 {
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: 15px;
+    border: solid 4px #c2d1d5;
+    cursor: pointer;
+}
+
+
 .programDertailcubes {
     padding-inline: 100px;
 }
@@ -385,7 +474,7 @@
 }
 
 .programDertailcubes h3 {
-    font-family: 'roboto-regular';
+    font-family: 'Endzone Sans Bold';
     color: #004979;
     text-transform: uppercase;
     font-size: 19px;
@@ -405,14 +494,21 @@
     text-transform: uppercase;
     position: absolute;
     font-family: 'roboto-regular';
-    left: 152px;
+    left: 100px;
     top: 164px;
+}
+
+.secondSliderPara {
+    font-family: 'Endzone Sans Medium';
+    color: #4c606f;
+    font-size: 19px;
 }
 
 .DateSlade:nth-child(1) {
     background-color: white;
     padding-block: 15px;
     padding-inline: 10px;
+
 }
 
 .DateSlade:nth-child(2) {
@@ -423,13 +519,15 @@
 }
 
 .DateSlade h6:nth-child(1) {
-    color: #3e4f5c;
+    color: #798f96;
     margin: 0;
+    font-family: 'Endzone Sans Medium';
 }
 
 .DateSlade h6:nth-child(2) {
     color: white;
     margin: 0;
+    font-family: 'Endzone Sans Medium';
 }
 
 .thirdSection h2 {
@@ -454,7 +552,7 @@
     font-style: normal;
     box-sizing: border-box;
     color: #4c606f;
-    font-family: 'roboto-regular';
+    font-family: 'Endzone Sans Medium';
 }
 
 .footerSection {
@@ -464,10 +562,10 @@
 
 .footerLogoImage {
     width: 198px;
-    height: 145px;
+    height: 130px;
     position: absolute;
     bottom: 272px;
-    transform: rotate(-32deg);
+    transform: rotate(-33deg);
     right: 86px;
 }
 
@@ -507,4 +605,369 @@
     top: -220px;
     left: -173px;
     z-index: 990001;
+
+}
+
+
+@media (max-width: 1920px) and (min-width: 1600px) {
+    .impectSection {
+        height: 250px;
+        width: 60%;
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 75px;
+    }
+
+    .secondSlider h1 {
+        transform: rotate(-90deg);
+        font-size: 64px;
+        color: #fff;
+        text-transform: uppercase;
+        position: absolute;
+        font-family: 'roboto-regular';
+        left: 30px;
+        top: 164px;
+    }
+
+    .footerDescription p {
+        font-family: '';
+        font-size: 15px;
+        font-weight: 400;
+        color: #fff;
+        font-family: "Montserrat", sans-serif;
+    }
+
+    .footerDescription h6 {
+        font-family: "Montserrat", sans-serif;
+        color: #677a8a;
+        font-size: 15px;
+    }
+
+    .footerLink {
+        font-family: "Montserrat", sans-serif;
+        color: #5eb1e8;
+        font-size: 15px;
+        text-decoration: none;
+    }
+
+    .BannerRight {
+        padding: 160px 120px 210px 120px;
+        position: relative;
+        background: #da0000 no-repeat bottom right;
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .transformingBanner {
+        position: absolute;
+        transform: rotate(-90deg);
+        font-family: 'roboto-regular' !important;
+        line-height: 0;
+        color: #fff;
+        text-transform: uppercase;
+        transform: rotate(-90deg);
+        position: absolute;
+        left: -30px;
+        top: 290px;
+        font-size: 52px;
+    }
+
+    .footerLogo {
+        position: absolute;
+        transform: rotate(34deg);
+        background: #fff;
+        width: 600px;
+        height: 600px;
+        top: -220px;
+        left: -225px;
+        z-index: 990001;
+
+    }
+
+    .coummunitySecond p {
+        font-size: 15px;
+        font-weight: 300;
+        font-style: normal;
+        box-sizing: border-box;
+        color: #4c606f;
+        font-family: 'Endzone Sans Medium';
+    }
+}
+
+
+
+@media (max-width: 1600px) and (min-width: 1400px) {
+    .impectSection {
+        height: 300px;
+        width: 60%;
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 75px;
+    }
+
+
+    .impectSection::before {
+        content: '';
+        width: 187px;
+        height: 342px;
+        background: #fff;
+        transform: rotate(34deg);
+        position: absolute;
+        top: 23px;
+        left: -112px;
+    }
+
+    .featuresAbsolute::after {
+        display: none;
+    }
+
+    .secondSlider h1 {
+        transform: rotate(-90deg);
+        font-size: 64px;
+        color: #fff;
+        text-transform: uppercase;
+        position: absolute;
+        font-family: 'roboto-regular';
+        left: 30px;
+        top: 164px;
+    }
+
+    .footerDescription p {
+        font-family: '';
+        font-size: 15px;
+        font-weight: 400;
+        color: #fff;
+        font-family: "Montserrat", sans-serif;
+    }
+
+    .footerDescription h6 {
+        font-family: "Montserrat", sans-serif;
+        color: #677a8a;
+        font-size: 15px;
+    }
+
+    .footerLink {
+        font-family: "Montserrat", sans-serif;
+        color: #5eb1e8;
+        font-size: 15px;
+        text-decoration: none;
+    }
+
+    .BannerRight {
+        padding: 100px 50px 150px 120px;
+        position: relative;
+        background: #da0000 no-repeat bottom right;
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .transformingBanner {
+        position: absolute;
+        transform: rotate(-90deg);
+        font-family: 'roboto-regular' !important;
+        line-height: 0;
+        color: #fff;
+        text-transform: uppercase;
+        transform: rotate(-90deg);
+        position: absolute;
+        left: -30px;
+        top: 225px;
+        font-size: 52px;
+    }
+
+    .footerLogo {
+        position: absolute;
+        transform: rotate(34deg);
+        background: #fff;
+        width: 521px;
+        height: 600px;
+        top: -220px;
+        left: -225px;
+        z-index: 990001;
+    }
+
+    .coummunitySecond p {
+        font-size: 15px;
+        font-weight: 300;
+        font-style: normal;
+        box-sizing: border-box;
+        color: #4c606f;
+        font-family: 'Endzone Sans Medium';
+    }
+
+    .footerLogoImage {
+        width: 198px;
+        height: 145px;
+        position: absolute;
+        bottom: 312px;
+        transform: rotate(-32deg);
+        right: 35px;
+    }
+}
+
+
+@media (max-width: 1400px) and (min-width: 0px) {
+    .SideBar {
+        display: none;
+    }
+
+    .featuresAbsolute::after {
+        display: none;
+    }
+
+    .featuresAbsolute {
+        position: relative;
+        right: 0%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        z-index: 9999;
+        overflow: hidden;
+    }
+}
+
+.RedSectionResponsive {
+    display: none;
+}
+
+.secondSliderIndicatior {
+    display: block;
+}
+
+.secondSliderIndicatiorResponsive {
+    display: none;
+}
+.ResponsiveHeader{
+    display: none;
+}
+
+@media (max-width: 900px) and (min-width: 0px) {
+    .MainContainer {
+        padding-inline: 0px;
+    }
+
+    .ResponsiveHeader {
+        padding-block: 20px;
+        margin-bottom: 60px;
+    }
+
+    .ResponsiveHeader{
+        display: block;
+    }
+    .RedSideNav {
+        background-color: red;
+        padding-block: 20px;
+        padding-right: 20px;
+        padding-left: 241px;
+    }
+
+    .BannerRight {
+        padding: 90px 40px 100px 40px;
+        position: relative;
+        background: #da0000 no-repeat bottom right;
+        color: #fff;
+        display: block;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .RedSection {
+        display: none !important;
+    }
+
+    .transformingBanner {
+        position: relative !important;
+        transform: rotate(0deg);
+        font-family: 'roboto-regular' !important;
+        line-height: 0;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 52px;
+        top: 0;
+        left: 0;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .RedSectionResponsive {
+        padding-inline: 30px;
+        display: block;
+    }
+
+    .secondSliderIndicatior {
+        display: none;
+    }
+
+    .RedSectionResponsive h1 {
+        padding-bottom: 0px;
+        font-size: 48px;
+        color: #da0000;
+        text-transform: uppercase;
+        font-family: 'Endzone Sans Bold';
+    }
+
+    .secondSliderIndicatiorResponsive {
+        display: flex;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .secondSlider {
+        display: flex;
+        flex-direction: column;
+    }
+    .coummunitySecond {
+        padding-left: 30px;
+    }
+    .mobileFlex{
+        flex-direction: column;
+        padding-inline: 20px;
+    }
+    .mobileFlexCenter{
+        flex-direction: column;
+        padding-inline: 20px;
+        align-items: flex-start !important;
+    }
+    .footerSection{
+        padding-inline: 20px;
+    }
+    .TransFormResponsiveHead{
+        height: 470px;
+        width: 233px;
+        background-color: white;
+        position: absolute;
+        z-index: 999;
+        transform: rotate(45deg);
+        top: -158px;
+        left: -68px;
+        box-shadow: 17px 0px 0px 0px rgba(0,0,0,0.15);
+    }
+    .TransFormResponsiveHeadImage{
+        transform: rotate(-45deg);
+        height: 88px;
+        width: 153px;
+        position: absolute;
+        right: 9px;
+        bottom: 240px;
+    }
 }
