@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 @font-face {
     font-family: 'roboto-regular';
     src: url('./fonts/endzoneslab-bold_bigfontsite.com.ttf');
@@ -13,7 +12,7 @@
 .SideBar {
     width: 323px;
     height: 100%;
-    background: url(./assets/sidebar_bg.png) repeat-y top right;
+    background: repeat-y top right;
     position: absolute;
     left: 0;
     top: 0;
@@ -25,7 +24,7 @@
 }
 
 .main_logo {
-    background: url(./assets/nflf_logo.png) no-repeat;
+    background: no-repeat;
     background-size: 261px 175px;
     width: 261px;
     height: 175px;
@@ -161,7 +160,7 @@
 .BannerLeft {
     height: 850px;
     position: relative;
-    background: #eee url(./assets/USAfootball_1_edit.jpg) no-repeat bottom left;
+    background: #eee no-repeat bottom left;
     background-size: cover;
     overflow: hidden;
     background-position: 150px;

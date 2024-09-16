@@ -10,19 +10,22 @@ import NflA from './assets/NflA.png';
 import NflN from './assets/NflN.png';
 import nflBrand1 from './assets/NflBrand1.png';
 import FooterLogo from './assets/nflf_logo.png';
-
+import bgBanner from './assets/sidebar_bg.png';
+import logos from './assets/nflf_logo.png';
+import USAfootball_1_edit from './assets/USAfootball_1_edit.jpg';
+import mission_bg from './assets/mission_bg.png';
 
 
 export default function Home() {
   return (
     <div className={`${styles.MainContainer} container-fluid`}>
-      <div className={styles.SideBar}>
-        <div className={styles.diagonal_box} bis_skin_checked="1">
+      <div className={styles.SideBar} style={{ backgroundImage: `url(${bgBanner.src})` }}>
+        <div className={styles.diagonal_box}>
 
         </div>
-        <div className={styles.main_logo} bis_skin_checked="1">
+        <div className={styles.main_logo} style={{ backgroundImage: `url(${logos.src})` }}>
         </div>
-        <div className={styles.menu_launch} bis_skin_checked="1">
+        <div className={styles.menu_launch}>
           <div className={styles.closed} bis_skin_checked="1">
             <span >Menu</span>
             <IoMenu className={styles.HamburgerIcon} />
@@ -48,7 +51,7 @@ export default function Home() {
       </div>
       <div className="row h-100 position-relative">
         <div className="col-md-7 bg-dark h-100 p-0">
-          <div className={styles.BannerLeft}>
+          <div className={styles.BannerLeft} style={{ backgroundImage: `url(${USAfootball_1_edit.src})` }}>
             <div className={styles.impectSection}>
               <h3>
                 IMPACT
@@ -59,7 +62,7 @@ export default function Home() {
           </div>
         </div>
         <div className="col-md-5 bg-light h-100 p-0">
-          <div className={styles.BannerRight}>
+          <div className={styles.BannerRight} style={{ backgroundImage: `url(${mission_bg.src})` }}>
             <h1 className={styles.transformingBanner}>
               Mission
             </h1>
@@ -373,7 +376,7 @@ export default function Home() {
 
 
       <div className={`row ${styles.footerSection}`}>
-        <div className={`col-md-2 p-0`} style={{background:'white'}}>
+        <div className={`col-md-2 p-0`} style={{ background: 'white' }}>
 
         </div>
 
@@ -401,7 +404,7 @@ export default function Home() {
                   <h6>
                     <strong>For more information<br />about the NFL please<br />visit these links:</strong>
                   </h6>
-                  <div style={{display:'flex',alignItems:'flex-start',flexDirection:'column'}}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
                     <a href="#" className={styles.footerLink}><strong>NFL.com</strong></a>
                     <a href="#" className={styles.footerLink}><strong>NFL.com/auction</strong></a>
                     <a href="#" className={styles.footerLink}><strong>Community.nfl.com</strong></a>
