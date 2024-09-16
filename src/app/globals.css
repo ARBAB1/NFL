@@ -1,0 +1,17 @@
+@font-face { font-family: roboto-regular;  src: url('./fonts/endzoneslab-bold_bigfontsite.com.ttf'); } 
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'roboto-regular';
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
