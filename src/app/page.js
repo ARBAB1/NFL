@@ -53,32 +53,20 @@ export default function Home() {
   const firstSlider = useRef()
   const secondSliderRef = useRef()
 
-  const useSize = () => {
-    const [windowSize, setWindowSize] = useState({
-      height: window.innerHeight,
-      width: window.innerWidth,
-    });
+  const [windowWidth, setWindowWidth] = useState(0);
 
-    useEffect(() => {
-      const windowSizeHandler = () => {
-        setWindowSize([window.innerWidth, window.innerHeight]);
-      };
-      window.addEventListener("resize", windowSizeHandler);
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-      return () => {
-        window.removeEventListener("resize", windowSizeHandler);
-      };
-    }, []);
 
-    return windowSize;
-  };
-
-  const windowsize = useSize();
-
-  console.log(windowsize)
+  console.log(windowWidth)
   return (
     <div className={`${styles.MainContainer} container-fluid`}>
-      {windowsize.width > 1400 &&
+      {windowWidth > 1400 &&
         <div className={styles.SideBar} style={{ backgroundImage: `url(${bgBanner.src})` }}>
           <div className={styles.diagonal_box}>
 
@@ -119,14 +107,14 @@ export default function Home() {
         </div>
         <div></div>
         <div className={styles.TransFormResponsiveHead}>
-            <Image src={FooterLogo} className={styles.TransFormResponsiveHeadImage}/>
+          <Image src={FooterLogo} className={styles.TransFormResponsiveHeadImage} />
         </div>
       </div>
 
 
       <div className="row h-100 position-relative">
 
-        {windowsize.width > 1400 &&
+        {windowWidth > 1400 &&
           <div className="col-md-7 bg-dark h-100 p-0">
             <div className={styles.BannerLeft} style={{ backgroundImage: `url(${USAfootball_1_edit.src})` }}>
               <div className={styles.impectSection}>
@@ -140,7 +128,7 @@ export default function Home() {
         }
 
 
-        <div className={`${windowsize.width > 1400 ? "col-md-5" : "col-md-12"} bg-light h-100 p-0`}>
+        <div className={`${windowWidth > 1400 ? "col-md-5" : "col-md-12"} bg-light h-100 p-0`}>
           <div className={styles.BannerRight} style={{ backgroundImage: `url(${mission_bg.src})` }}>
             <h1 className={styles.transformingBanner}>
               Mission
@@ -166,12 +154,12 @@ export default function Home() {
         <div className={styles.featuresAbsolute}>
           <div className="container-fluid h-100">
             <div className={`row h-100`}>
-              {windowsize.width > 1400 &&
+              {windowWidth > 1400 &&
                 <div className="col-md-3 p-0">
                 </div>
               }
 
-              {windowsize.width > 1400 ?
+              {windowWidth > 1400 ?
                 <div className="col-md-8 p-0 d-flex align-items-center justify-content-between">
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                     <div className={styles.featureContent}>
@@ -250,7 +238,7 @@ export default function Home() {
                   </div>
                 </div>
               }
-              {windowsize.width > 1400 &&
+              {windowWidth > 1400 &&
                 <div className="col-md-1 p-0">
                 </div>
               }
@@ -335,12 +323,12 @@ export default function Home() {
       </div>
 
       <div className={`row ${styles.thirdSection} py-0`}>
-        {windowsize.width > 1400 &&
+        {windowWidth > 1400 &&
           <div className={`col-md-2 p-0`}>
 
           </div>
         }
-        <div className={`${windowsize.width > 1400 ? "col-md-10" : "col-md-12"}  ${styles.programDertailcubes}`}>
+        <div className={`${windowWidth > 1400 ? "col-md-10" : "col-md-12"}  ${styles.programDertailcubes}`}>
           <div className="row">
             <div className="col-md-3 d-flex align-items-center justify-content-center text-center flex-column">
               <div className={styles.ProgramDetail}>
@@ -371,12 +359,12 @@ export default function Home() {
       </div>
 
       <div className={`row ${styles.thirdSection}`}>
-        {windowsize.width > 1400 &&
+        {windowWidth > 1400 &&
           <div className={`col-md-2 p-0`}>
           </div>
         }
-        <div className={`${windowsize.width > 1400 ? "col-md-10" : "col-md-12"} d-flex justify-content-center position-relative ${styles.secondSlider}`} >
-          {windowsize.width > 1400 &&
+        <div className={`${windowWidth > 1400 ? "col-md-10" : "col-md-12"} d-flex justify-content-center position-relative ${styles.secondSlider}`} >
+          {windowWidth > 1400 &&
             <h1>News</h1>
           }
           <div className={`pt-5 ${styles.secondSliderIndicatior}`}>
@@ -384,6 +372,7 @@ export default function Home() {
               <FaChevronLeft style={{ color: '#5eb1e8', fontSize: "20px" }} />
             </button>
           </div>
+          <h1 className={styles.ResponsiveHeading}>News</h1>
 
           <Slider {...settings2} ref={secondSliderRef}>
             <div className="px-4 col-md-10">
@@ -417,7 +406,7 @@ export default function Home() {
               <button onClick={() => secondSliderRef?.current?.slickPrev()} className={styles.controllBtn2}>
                 <FaChevronRight style={{ color: '#5eb1e8', fontSize: "20px" }} />
               </button>
-              {windowsize.width > 1400 &&
+              {windowWidth > 1400 &&
                 <h5 style={{ fontFamily: 'Endzone Sans Bold', color: '#5eb1e8' }}>View All</h5>
               }
             </div>
@@ -430,14 +419,14 @@ export default function Home() {
       </div>
 
       <div className={`row ${styles.coummunitySection}`}>
-        {windowsize.width > 1400 &&
+        {windowWidth > 1400 &&
           <div className={`col-md-2 p-0`}>
 
           </div>
         }
-        <div className={`${windowsize.width > 1400 ? "col-md-10" : "col-md-12"} pl-0 pr-0 `}>
+        <div className={`${windowWidth > 1400 ? "col-md-10" : "col-md-12"} pl-0 pr-0 `}>
           <div className="row">
-            <div className={`${windowsize.width > 1200 ? "col-md-5" : "col-md-12"}`}>
+            <div className={`${windowWidth > 1200 ? "col-md-5" : "col-md-12"}`}>
               <div className={styles.coummunitySecond}>
                 <h2>Community</h2>
                 <p>Whether it's promoting new youth and high school<br />
@@ -456,7 +445,7 @@ export default function Home() {
             </div>
 
 
-            <div className={`${windowsize.width > 1200 ? "col-md-7" : "col-md-12"}`}>
+            <div className={`${windowWidth > 1200 ? "col-md-7" : "col-md-12"}`}>
               <div style={{ paddingBlock: '30px' }}></div>
               <div style={{ display: 'flex', alignItems: 'flex-start', paddingBottom: '20px', paddingRight: '100px', borderBottom: '1px solid #EEEEEE' }} className={styles.mobileFlex}>
                 <div>
@@ -557,17 +546,17 @@ export default function Home() {
 
         <div className={`col-md-10 pl-0 pr-0 position-relative`}>
           <div className="row">
-            {windowsize.width > 1200 &&
+            {windowWidth > 1200 &&
               <div className={`${styles.footerLogo}`}>
                 <Image src={FooterLogo} className={styles.footerLogoImage} />
               </div>
             }
 
-            {windowsize.width > 1200 &&
+            {windowWidth > 1200 &&
               <div className={`col-md-4`}>
               </div>
             }
-            <div className={`${windowsize.width > 1200 ? 'col-md-8' : 'col-md-12'} ${styles.footerDescription}`}>
+            <div className={`${windowWidth > 1200 ? 'col-md-8' : 'col-md-12'} ${styles.footerDescription}`}>
               <div className="row h-100">
                 <div className="col-md-9 d-flex align-items-center flex-column justify-content-center" >
                   <p>
