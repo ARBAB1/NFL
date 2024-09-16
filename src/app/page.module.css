@@ -171,7 +171,7 @@
     background-color: blue;
     padding: 160px 160px 210px 160px;
     position: relative;
-    background: #da0000 url(./assets/mission_bg.png) no-repeat bottom right;
+    background: #da0000 no-repeat bottom right;
     color: #fff;
     display: flex;
     flex-direction: row;
