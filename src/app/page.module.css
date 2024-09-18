@@ -62,7 +62,7 @@
     top: 398px;
     right: 0;
     width: 100%;
-    background: #da0000;
+    background: black;
     text-align: right;
     padding: 34px 30px 30px 0px;
     font-family: 'roboto-regular';
@@ -194,7 +194,7 @@
 .BannerRight {
     padding: 160px 160px 210px 160px;
     position: relative;
-    background: #da0000 no-repeat bottom right;
+    background: black no-repeat bottom right;
     color: #fff;
     display: flex;
     flex-direction: row;
@@ -224,7 +224,7 @@
 }
 
 .BannerRight a {
-    color: #1a2e3b !important;
+    color: white !important;
     font-family: 'Endzone Sans Medium' !important;
     font-size: 18px;
 }
@@ -340,7 +340,7 @@
 }
 
 .RedSection {
-    background-color: #da0000;
+    background-color: black;
     height: 600px;
     display: flex;
     align-items: center;
@@ -353,7 +353,7 @@
     content: '';
     width: 400px;
     height: 400px;
-    background: #c20101;
+    background: rgb(48, 48, 48);
     transform: rotate(34deg);
     position: absolute;
     bottom: -230px;
@@ -395,7 +395,7 @@
     align-items: center;
     justify-content: center;
     margin-inline: 15px;
-    border: solid 4px #c20101;
+    border: solid 4px rgb(48, 48, 48);
     cursor: pointer;
 }
 
@@ -660,7 +660,7 @@
     .BannerRight {
         padding: 160px 120px 210px 120px;
         position: relative;
-        background: #da0000 no-repeat bottom right;
+        background: black no-repeat bottom right;
         color: #fff;
         display: flex;
         flex-direction: row;
@@ -705,7 +705,7 @@
 
 
 
-@media (max-width: 1600px) and (min-width: 1400px) {
+@media (max-width: 1600px) and (min-width: 1300px) {
     .impectSection {
         height: 300px;
         width: 60%;
@@ -772,7 +772,7 @@
     .BannerRight {
         padding: 100px 50px 150px 120px;
         position: relative;
-        background: #da0000 no-repeat bottom right;
+        background: black no-repeat bottom right;
         color: #fff;
         display: flex;
         flex-direction: row;
@@ -823,8 +823,11 @@
     }
 }
 
+@media (max-width: 1400px) and (min-width: 1300px) {
+    
+}
 
-@media (max-width: 1400px) and (min-width: 0px) {
+@media (max-width: 1300px) and (min-width: 0px) {
     .SideBar {
         display: none;
     }
@@ -886,7 +889,7 @@
     .BannerRight {
         padding: 90px 40px 100px 40px;
         position: relative;
-        background: #da0000 no-repeat bottom right;
+        background: black no-repeat bottom right;
         color: #fff;
         display: block;
         flex-direction: row;

@@ -32,7 +32,7 @@ export default function Home() {
     arrows: false,
     responsive: [
       {
-        breakpoint: 1400,
+        breakpoint: 1300,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -66,7 +66,7 @@ export default function Home() {
   console.log(windowWidth)
   return (
     <div className={`${styles.MainContainer} container-fluid`}>
-      {windowWidth > 1400 &&
+      {windowWidth > 1300 &&
         <div className={styles.SideBar} style={{ backgroundImage: `url(${bgBanner.src})` }}>
           <div className={styles.diagonal_box}>
 
@@ -75,7 +75,7 @@ export default function Home() {
           </div>
           <div className={styles.menu_launch}>
             <div className={styles.closed} bis_skin_checked="1">
-              <span >Menu</span>
+              <span style={{color:'white'}}>Menu</span>
               <IoMenu className={styles.HamburgerIcon} />
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function Home() {
 
       <div className="row h-100 position-relative">
 
-        {windowWidth > 1400 &&
+        {windowWidth > 1300 &&
           <div className="col-md-7 bg-dark h-100 p-0">
             <div className={styles.BannerLeft} style={{ backgroundImage: `url(${USAfootball_1_edit.src})` }}>
               <div className={styles.impectSection}>
@@ -128,8 +128,8 @@ export default function Home() {
         }
 
 
-        <div className={`${windowWidth > 1400 ? "col-md-5" : "col-md-12"} bg-light h-100 p-0`}>
-          <div className={styles.BannerRight} style={{ backgroundImage: `url(${mission_bg.src})` }}>
+        <div className={`${windowWidth > 1300 ? "col-md-5" : "col-md-12"} bg-light h-100 p-0`}>
+          <div className={styles.BannerRight}>
             <h1 className={styles.transformingBanner}>
               Mission
             </h1>
@@ -154,12 +154,12 @@ export default function Home() {
         <div className={styles.featuresAbsolute}>
           <div className="container-fluid h-100">
             <div className={`row h-100`}>
-              {windowWidth > 1400 &&
+              {windowWidth > 1300 &&
                 <div className="col-md-3 p-0">
                 </div>
               }
 
-              {windowWidth > 1400 ?
+              {windowWidth > 1300 ?
                 <div className="col-md-8 p-0 d-flex align-items-center justify-content-between">
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                     <div className={styles.featureContent}>
@@ -238,7 +238,7 @@ export default function Home() {
                   </div>
                 </div>
               }
-              {windowWidth > 1400 &&
+              {windowWidth > 1300 &&
                 <div className="col-md-1 p-0">
                 </div>
               }
@@ -323,12 +323,12 @@ export default function Home() {
       </div>
 
       <div className={`row ${styles.thirdSection} py-0`}>
-        {windowWidth > 1400 &&
+        {windowWidth > 1300 &&
           <div className={`col-md-2 p-0`}>
 
           </div>
         }
-        <div className={`${windowWidth > 1400 ? "col-md-10" : "col-md-12"}  ${styles.programDertailcubes}`}>
+        <div className={`${windowWidth > 1300 ? "col-md-10" : "col-md-12"}  ${styles.programDertailcubes}`}>
           <div className="row">
             <div className="col-md-3 d-flex align-items-center justify-content-center text-center flex-column">
               <div className={styles.ProgramDetail}>
@@ -359,12 +359,12 @@ export default function Home() {
       </div>
 
       <div className={`row ${styles.thirdSection}`}>
-        {windowWidth > 1400 &&
+        {windowWidth > 1300 &&
           <div className={`col-md-2 p-0`}>
           </div>
         }
-        <div className={`${windowWidth > 1400 ? "col-md-10" : "col-md-12"} d-flex justify-content-center position-relative ${styles.secondSlider}`} >
-          {windowWidth > 1400 &&
+        <div className={`${windowWidth > 1300 ? "col-md-10" : "col-md-12"} d-flex justify-content-center position-relative ${styles.secondSlider}`} >
+          {windowWidth > 1300 &&
             <h1>News</h1>
           }
           <div className={`pt-5 ${styles.secondSliderIndicatior}`}>
@@ -406,7 +406,7 @@ export default function Home() {
               <button onClick={() => secondSliderRef?.current?.slickPrev()} className={styles.controllBtn2}>
                 <FaChevronRight style={{ color: '#5eb1e8', fontSize: "20px" }} />
               </button>
-              {windowWidth > 1400 &&
+              {windowWidth > 1300 &&
                 <h5 style={{ fontFamily: 'Endzone Sans Bold', color: '#5eb1e8' }}>View All</h5>
               }
             </div>
@@ -419,12 +419,12 @@ export default function Home() {
       </div>
 
       <div className={`row ${styles.coummunitySection}`}>
-        {windowWidth > 1400 &&
+        {windowWidth > 1300 &&
           <div className={`col-md-2 p-0`}>
 
           </div>
         }
-        <div className={`${windowWidth > 1400 ? "col-md-10" : "col-md-12"} pl-0 pr-0 `}>
+        <div className={`${windowWidth > 1300 ? "col-md-10" : "col-md-12"} pl-0 pr-0 `}>
           <div className="row">
             <div className={`${windowWidth > 1200 ? "col-md-5" : "col-md-12"}`}>
               <div className={styles.coummunitySecond}>
