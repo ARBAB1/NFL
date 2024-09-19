@@ -135,10 +135,11 @@ export default function Home() {
             </h1>
             <div>
               <p>
-                The National Football League (NFL) Foundation is a nonprofit organization dedicated to improving the lives of those touched by the game of football – from players at all levels to communities across the country. The NFL Foundation and its members, the 32 NFL clubs, support the health, safety and wellness of athletes, youth football, and the communities that support our game.
+                The Kriya Shakti Foundation (KSF) is a nonprofit organization committed to promoting social wellness, healthy living, and happiness through the power of sports and the arts. Since our founding in 2017, we have been dedicated to our mission of "Social Wellness through Arts and Sports," impacting individuals from diverse backgrounds, skill levels, ethnicities, and communities. Our aim is not only to encourage healthy lifestyles but also to bring people together, fostering community bonds and camaraderie.
+
               </p>
               <p>
-                Celebrating 50 years, the NFL Foundation has become one of the leading philanthropic entities in America, contributing to NFL team communities, national and international disaster relief efforts, and societal issues. The league is utilizing this anniversary to amplify the impact of NFL Philanthropy and the progress made by our nonprofit entities.
+                The founders of the Kriya Shakti Foundation firmly believe that happiness and good health are essential for a positive outlook on life. They recognize the importance of practicing and sharing these values within a community to inspire positive thinking and a healthy lifestyle. As they explored ways to achieve this, they sought a universal platform that could transcend geographical, cultural, and ethnic boundaries. Sports and the arts naturally emerged as the ideal mediums, leading to the creation and mission of the Kriya Shakti Foundation.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <a>
