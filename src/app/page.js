@@ -138,9 +138,14 @@ export default function Home() {
                 The Kriya Shakti Foundation (KSF) is a nonprofit organization committed to promoting social wellness, healthy living, and happiness through the power of sports and the arts. Since our founding in 2017, we have been dedicated to our mission of "Social Wellness through Arts and Sports," impacting individuals from diverse backgrounds, skill levels, ethnicities, and communities. Our aim is not only to encourage healthy lifestyles but also to bring people together, fostering community bonds and camaraderie.
 
               </p>
+             <div>
+             <h1 className={styles.transformingBanner2}>
+              Philosophy
+            </h1>
               <p>
                 The founders of the Kriya Shakti Foundation firmly believe that happiness and good health are essential for a positive outlook on life. They recognize the importance of practicing and sharing these values within a community to inspire positive thinking and a healthy lifestyle. As they explored ways to achieve this, they sought a universal platform that could transcend geographical, cultural, and ethnic boundaries. Sports and the arts naturally emerged as the ideal mediums, leading to the creation and mission of the Kriya Shakti Foundation.
               </p>
+             </div>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <a>
                   Find out more

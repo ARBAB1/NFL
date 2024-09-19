@@ -216,6 +216,20 @@
     font-size: 52px;
 }
 
+.transformingBanner2 {
+    position: absolute;
+    transform: rotate(-90deg);
+    font-family: 'roboto-regular' !important;
+    line-height: 0;
+    color: #fff;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: -90px;
+    top: 670px;
+    font-size: 52px;
+}
+
 .BannerRight p {
     font-family: "Endzone Sans Medium";
     font-size: 19px;
@@ -907,10 +921,23 @@
         line-height: 0;
         color: #fff;
         text-transform: uppercase;
-        font-size: 52px;
+        font-size: 48px;
         top: 0;
         left: 0;
         margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .transformingBanner2{
+        position: relative !important;
+        transform: rotate(0deg);
+        font-family: 'roboto-regular' !important;
+        line-height: 0;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 48px;
+        top: 0;
+        left: 0;
+        margin-top: 50px;
         margin-bottom: 20px;
     }
 
